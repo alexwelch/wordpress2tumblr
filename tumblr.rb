@@ -37,12 +37,12 @@ class Tumblr
     def import_from_wordpress(file_path)      
       xml = Crack::XML.parse(open(file_path))
       xml['rss']['channel']['item'].each do |item|
-        create_post(
-          :type  => 'regular', 
-          :title => item['title'], 
-          :body  => item['content:encoded'], 
-          :date  => item['wp:post_date_gmt'],
-          :group => SUBDOMAIN)
+        # create_post(
+          # :type  => 'regular', 
+          # :title => item['title'], 
+          # :body  => item['content:encoded'], 
+          # :date  => item['wp:post_date_gmt'],
+          # :group => SUBDOMAIN)
         p "Imported: #{item['title']}"
       end
     end
